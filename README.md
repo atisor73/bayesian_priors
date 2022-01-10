@@ -13,5 +13,4 @@ bayesian_priors.dashboard(description=True)
 
 
 
-<img src="https://github.com/atisor73/bayesian_priors/blob/main/demo.png?raw=true" width="80%" />
-
+<img src="https://github.com/atisor73/bayesian_priors/blob/main/demo.png?raw=true" width="90%" />
