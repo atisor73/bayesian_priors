@@ -11,4 +11,5 @@ import bayesian_priors
 bayesian_priors.dashboard(description=True)
 ```
 
-![](demo.png)
+<img src="demo.png" style="zoom:80%;" />
+
