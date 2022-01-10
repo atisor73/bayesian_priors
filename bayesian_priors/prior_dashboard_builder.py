@@ -114,6 +114,20 @@ def _pdfcdf_2p2b_plotter(
         </div></div></div>""")
     p_pdf.add_tools(g_hover_pdf)
 
+    # ************************  CDF HOVER BULK  ********************************
+    # curves: hover bulk
+    cds_curves = bokeh.models.ColumnDataSource(data={"x_full": x_full, "cdf_full": cdf_full})
+    g_cdf = bokeh.models.Line(x="x_full", y="cdf_full", line_alpha=0.0)
+    g_r_cdf = p_cdf.add_glyph(source_or_glyph=cds_curves, glyph=g_cdf)
+    g_hover_cdf = bokeh.models.HoverTool(renderers=[g_r_cdf], mode='vline', line_policy="nearest",
+        tooltips=f"""<div><div><div>
+            <span style="font-size: 13px; font-family: Helvetica; color: {color}; font-weight: bold;"> &nbsp;&nbsp; y: </span>
+            <span style="font-size: 13px; font-family: Helvetica; color: black"> @x_full </span> <br>
+            <span style="font-size: 13px; font-family: Helvetica; color: {color}; font-weight: bold;"> cdf: </span>
+            <span style="font-size: 13px; font-family: Helvetica; color: black"> @cdf_full </span>
+        </div></div></div>""")
+    p_cdf.add_tools(g_hover_cdf)
+
     # ***********************  PDF HOVER ENDPTS  *******************************
     cds_bounds = bokeh.models.ColumnDataSource(data={
         "L": [L], "U": [U], "pdf_low": [f_pdf(L, mu, sigma)], "pdf_high": [f_pdf(U, mu, sigma)]})
@@ -146,20 +160,6 @@ def _pdfcdf_2p2b_plotter(
     p_pdf.add_tools(gL_hover)
     p_pdf.add_tools(gU_hover)
 
-    # ************************  CDF HOVER BULK  ********************************
-    # curves: hover bulk
-    cds_curves = bokeh.models.ColumnDataSource(data={"x_full": x_full, "cdf_full": cdf_full})
-    g_cdf = bokeh.models.Line(x="x_full", y="cdf_full", line_alpha=0.0)
-    g_r_cdf = p_cdf.add_glyph(source_or_glyph=cds_curves, glyph=g_cdf)
-    g_hover_cdf = bokeh.models.HoverTool(renderers=[g_r_cdf], mode='vline', line_policy="nearest",
-        tooltips=f"""<div><div><div>
-            <span style="font-size: 13px; font-family: Helvetica; color: {color}; font-weight: bold;"> &nbsp;&nbsp; y: </span>
-            <span style="font-size: 13px; font-family: Helvetica; color: black"> @x_full </span> <br>
-            <span style="font-size: 13px; font-family: Helvetica; color: {color}; font-weight: bold;"> cdf: </span>
-            <span style="font-size: 13px; font-family: Helvetica; color: black"> @cdf_full </span>
-        </div></div></div>""")
-    p_cdf.add_tools(g_hover_cdf)
-
     # ***********************  CDF HOVER ENDPTS  *******************************
     cds_bounds = bokeh.models.ColumnDataSource(data={
         "L": [L], "U": [U], "cdf_low": [f_cdf(L, mu, sigma)], "cdf_high": [f_cdf(U, mu, sigma)]})
@@ -191,6 +191,11 @@ def _pdfcdf_2p2b_plotter(
         tooltips=tooltips_U_cdf)
     p_cdf.add_tools(gL_hover)
     p_cdf.add_tools(gU_hover)
+
+    # # ************************ CROSSHAIR ************************
+    # crosshair_tool = bokeh.models.CrosshairTool(dimensions="height", line_color="black", line_width=1.9, line_alpha=0.1)
+    # p_cdf.add_tools(crosshair_tool)
+    # p_pdf.add_tools(crosshair_tool)
 
     # **************************************************************************
     row_pdfcdf = pn.Row(style(p_pdf, autohide=True), style(p_cdf, autohide=True))
@@ -283,6 +288,11 @@ def _pdfcdf_1p1b_plotter(
     gU_hover = bokeh.models.HoverTool(renderers=[gU_r], mode='vline', line_policy="nearest",
         tooltips=tooltips_U_cdf)
     p_cdf.add_tools(gU_hover)
+
+    # # ************************ CROSSHAIR ************************
+    # crosshair_tool = bokeh.models.CrosshairTool(dimensions="height", line_color="black", line_width=1.9, line_alpha=0.1)
+    # p_cdf.add_tools(crosshair_tool)
+    # p_pdf.add_tools(crosshair_tool)
 
     # **************************************************************************
     row_pdfcdf = pn.Row(style(p_pdf, autohide=True), style(p_cdf, autohide=True))
@@ -615,6 +625,8 @@ def dashboard_normal(L, U, bulk, half):
             μ, σ, _, U = find_normal(-U, U, bulk/100, precision=10, return_bounds=True)
             color = color_normal
         except:
+            try: U = float(U)
+            except: U = 10
             μ, σ = 1, 1
             color = color_null
 
@@ -642,6 +654,10 @@ def dashboard_normal(L, U, bulk, half):
             μ, σ, L, U = find_normal(L, U, bulk/100, precision=10, return_bounds=True)
             color = color_normal
         except:
+            try: L = float(L)
+            except: L = 1
+            try: U = float(U)
+            except: U = 10
             μ, σ = 1, 1
             color = color_null
 
@@ -673,6 +689,11 @@ def dashboard_lognormal(L, U, bulk):
         μ, σ, L, U = find_lognormal(L, U, bulk/100, precision=10, return_bounds=True)
         color = color_lognormal
     except:
+        try: L = float(L)
+        except: L = 1
+        try: U = float(U)
+        except: U = 10
+
         μ, σ = 1, 1
         color = color_null
 
@@ -704,6 +725,10 @@ def dashboard_gamma(L, U, bulk):
         α, β, L, U = find_gamma(L, U, bulk=bulk/100, precision=10, return_bounds=True)
         color = color_gamma
     except:
+        try: L = float(L)
+        except: L = 1
+        try: U = float(U)
+        except: U = 10
         α, β = 1, 1
         color = color_null
 
@@ -735,6 +760,11 @@ def dashboard_invgamma(L, U, bulk):
         α, β, L, U = find_invgamma(L, U, bulk=bulk/100, precision=10, return_bounds=True)
         color = color_invgamma
     except:
+        try: L = float(L)
+        except: L = 1
+        try: U = float(U)
+        except: U = 10
+
         α, β = 1, 1
         color = color_null
 
@@ -766,6 +796,11 @@ def dashboard_weibull(L, U, bulk):
         α, σ, L, U = find_weibull(L, U, bulk=bulk/100, precision=10, return_bounds=True)
         color = color_weibull
     except:
+        try: L = float(L)
+        except: L = 0.1
+        try: U = float(U)
+        except: U = 10
+
         α, σ = 1, 1
         color = color_null
 
@@ -797,6 +832,9 @@ def dashboard_exponential(U, Uppf):
         β, U = find_exponential(U, Uppf/100, precision=10, return_bounds=True)
         color = color_exponential
     except:
+        try: U = float(U)
+        except: U = 10
+
         β = 1
         color = color_null
     f_pdf = lambda arr, beta: scipy.stats.expon.pdf(arr, loc=0, scale=1/beta)
@@ -826,6 +864,11 @@ def dashboard_pareto(ymin, U, Uppf):
         α, U = find_pareto(ymin, U, Uppf/100, precision=10, return_bounds=True)
         color = color_pareto
     except:
+        try: ymin = float(ymin)
+        except: ymin = 3
+        try: U = float(U)
+        except: U = 10
+
         α = 1
         color = color_null
 
@@ -868,13 +911,16 @@ def dashboard_cauchy(L, U, bulk, half):
                 μ, σ, _, U = find_cauchy(-U, U, bulk/100, precision=10, return_bounds=True)
                 color = color_cauchy
         except:
+            try: U = float(U)
+            except: U = 10
             μ, σ = 1, 1
             color = color_null
+
         f_pdf = lambda arr, mu, sigma: scipy.stats.halfcauchy.pdf(arr, mu, sigma)
         f_cdf = lambda arr, mu, sigma: scipy.stats.halfcauchy.cdf(arr, mu, sigma)
         padding = U * 0.3
         x = np.linspace(0, U, 1_000)
-        x_high = scipy.stats.norm.ppf([0.95], μ, σ)[0]
+        x_high = scipy.stats.norm.ppf([0.90], μ, σ)[0]
         x_full = np.linspace(0, max(U+padding, x_high), 1_000)
         pdf_full = f_pdf(x_full, μ, σ)
         cdf_full = f_cdf(x_full, μ, σ)
@@ -891,6 +937,11 @@ def dashboard_cauchy(L, U, bulk, half):
             μ, σ, L, U = find_cauchy(L, U, bulk/100, precision=10, return_bounds=True)
             color = color_cauchy
         except:
+            try: L = float(L)
+            except: L = 1
+            try: U = float(U)
+            except: U = 10
+
             μ, σ = 1, 1
             color = color_null
 
@@ -925,13 +976,17 @@ def invisible_L_studentt(half):
             U_input_studentt.param.value, bulk_slider_studentt.param.value,
             half_checkbox_studentt.param.value)
 def dashboard_studentt(ν, L, U, bulk, half):
-    ν, L, U, bulk = float(ν), float(L), float(U), float(bulk)
-
     if half:
         try:
+            ν, L, U, bulk = float(ν), float(L), float(U), float(bulk)
             μ, σ, _, U = find_studentt(ν, -U, U, bulk/100, precision=10, return_bounds=True)
             color = color_studentt
         except:
+            try: ν = float(ν)
+            except: ν = 3
+            try: U = float(U)
+            except: U = 10
+
             ν, μ, σ = 10, (U-L)/2+L, 1
             color = color_null
 
@@ -940,7 +995,9 @@ def dashboard_studentt(ν, L, U, bulk, half):
         f_cdf = lambda arr, mu, sigma: 2*scipy.stats.t.cdf(arr, ν, mu, sigma)-1
         padding = U * 0.3
         x = np.linspace(0, U, 1_000)
-        x_high = scipy.stats.t.ppf([0.995], ν, μ, σ)[0]
+        if ν > 1: x_high = scipy.stats.t.ppf([0.995], ν, μ, σ)[0]
+        else: x_high = scipy.stats.t.ppf([0.90], ν, μ, σ)[0]
+
         x_full = np.linspace(0, max(U+padding, x_high), 1_000)
 
         x_patch = [0] + list(x) + [U]
@@ -959,6 +1016,13 @@ def dashboard_studentt(ν, L, U, bulk, half):
             μ, σ, L, U = find_studentt(ν, L, U, bulk/100, precision=10, return_bounds=True)
             color = color_studentt
         except:
+            try: ν = float(ν)
+            except: ν = 3
+            try: L = float(L)
+            except: L = 1
+            try: U = float(U)
+            except: U = 10
+
             ν, μ, σ = 10, (U-L)/2+L, 1
             color = color_null
 
@@ -967,7 +1031,9 @@ def dashboard_studentt(ν, L, U, bulk, half):
 
         padding = (U - L) * 0.3
         x = np.linspace(L, U, 1_000)
-        x_low, x_high = scipy.stats.t.ppf([0.025, 0.975], ν, μ, σ)
+        if ν > 1: x_low, x_high = scipy.stats.t.ppf([0.025, 0.975], ν, μ, σ)
+        else: x_low, x_high = scipy.stats.t.ppf([0.1, 0.9], ν, μ, σ)
+
         x_full = np.linspace(min(x_low, L-padding), max(x_high, U+padding), 1_000)
 
         pdf_full = f_pdf(x_full, μ, σ)
@@ -989,6 +1055,11 @@ def dashboard_gumbel(L, U, bulk):
         μ, σ, L, U = find_gumbel(L, U, bulk=bulk/100, precision=10, return_bounds=True)
         color = color_gumbel
     except:
+        try: L = float(L)
+        except: L = 1
+        try: U = float(U)
+        except: U = 10
+
         μ, σ = 1, 1
         color = color_null
 
@@ -1027,6 +1098,11 @@ def dashboard_beta(L, U, toggle, bulk, rnge):
                 precision=10, return_bounds=True)
         color = color_beta
     except:
+        try: L = float(L)
+        except: L = 0.3
+        try: U = float(U)
+        except: U = 0.6
+
         α, β = 1, 1
         color = color_null
 

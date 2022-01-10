@@ -337,7 +337,9 @@ def find_studentt(ν, L, U, bulk=0.95, precision=4, return_bounds=False):
         return zero
 
     # brent-q's guarantees a crossing, solving...
-    sigma_ = np.linspace(0.1, 100, 1000)         # change to logspace????????????? how to pick bounds?????
+    # sigma_ = np.linspace(0.1, 100, 1000)         # change to logspace????????????? how to pick bounds?????
+    sigma_ = np.logspace(-10, 10, 1000)
+    
     arr_sgn = np.sign(f(sigma_))
     i_ = np.where(arr_sgn[:-1] + arr_sgn[1:]==0)[0][0]
     bracket_low, bracket_high = sigma_[i_: i_+2]
