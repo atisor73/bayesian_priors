@@ -1082,7 +1082,7 @@ row_LUbulk_gumbel = pn.Row(L_input_gumbel, U_input_gumbel, bulk_slider_gumbel,
     pn.Spacer(width=80), gumbel_table)
 
 
-def bayesian_priors(description=False):
+def dashboard(description=False):
     md_title = pn.pane.Markdown("""Constructing Priors""",
         style={"font-family":'GillSans', 'font-size':'24px'})
 
@@ -1121,6 +1121,6 @@ def bayesian_priors(description=False):
         layout_normal, layout_studentt, layout_expon, layout_gamma, layout_invgamma,
         layout_gumbel, layout_weibull, layout_pareto, layout_lognormal, layout_cauchy, layout_beta)
 
-    dashboard = pn.Column(md_title, tabs)
+    layout = pn.Column(md_title, tabs)
 
-    return dashboard.servable()
+    return layout.servable()

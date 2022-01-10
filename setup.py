@@ -6,7 +6,7 @@ setup(
     name="bayesian_priors",
     version="0.0.1",
     description="Bayesian-priors is a package for visualizing prior distributions in the context of bayesian inference.",
-    url="https://github.com/atisor73/bayesian_priors",
+    # url="https://github.com/atisor73/bayesian_priors",
     long_description=long_description,
     license="MIT",
     author='Rosita Fu',
