@@ -11,5 +11,10 @@ import bayesian_priors
 bayesian_priors.dashboard(description=True)
 ```
 
-<img src="demo.png" style="zoom:65%;" />
 
+
+<img src="https://github.com/atisor73/bayesian_priors/blob/main/demo.png?raw=true" width="50%" />
+
+
+
+<img src="https://rawcdn.githack.com/atisor73/bayesian_priors/main/demo.png" width="50%" />
