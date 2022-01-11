@@ -1158,7 +1158,7 @@ row_LUbulk_gumbel = pn.Row(L_input_gumbel, U_input_gumbel, bulk_slider_gumbel,
     pn.Spacer(width=80), gumbel_table)
 
 
-def dashboard(description=False):
+def dashboard(description=True):
     md_title = pn.pane.Markdown("""Constructing Priors""",
         style={"font-family":'GillSans', 'font-size':'24px'})
 
