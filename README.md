@@ -9,7 +9,7 @@ A package for visualizing prior distributions in the context of Bayesian inferen
 
 User inputs their desired lower and upper bounds along with the % mass in-between. The dashboard will then display a set of parameters that generates such distribution.
 
-```
+```console
 git clone https://github.com/atisor73/bayesian_priors.git
 cd bayesian_priors/
 python setup.py install    # install package
