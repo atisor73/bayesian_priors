@@ -223,7 +223,7 @@ def find_pareto(ymin, U, Uppf=0.99, precision=4, return_bounds=False):
     α = np.log(1 - Uppf) / np.log(ymin / U)
 
     if return_bounds:
-        U_guess = scipy.stats.invgamma.ppf(Uppf, α, scale=ymin)
+        U_guess = scipy.stats.pareto.ppf(Uppf, α, scale=ymin)
         return np.round(α, precision), U_guess
 
     return np.round(α, precision)
@@ -339,7 +339,7 @@ def find_studentt(ν, L, U, bulk=0.95, precision=4, return_bounds=False):
     # brent-q's guarantees a crossing, solving...
     # sigma_ = np.linspace(0.1, 100, 1000)         # change to logspace????????????? how to pick bounds?????
     sigma_ = np.logspace(-10, 10, 1000)
-    
+
     arr_sgn = np.sign(f(sigma_))
     i_ = np.where(arr_sgn[:-1] + arr_sgn[1:]==0)[0][0]
     bracket_low, bracket_high = sigma_[i_: i_+2]
