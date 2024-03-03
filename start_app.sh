@@ -1,9 +1,9 @@
 #!/bin/bash
 
 echo ".......Installing dependencies......."
-sudo apt-get update > /dev/null
-sudo apt-get install python3-pip > /dev/null
-sudo apt install awscli > /dev/null
+# sudo apt-get update > /dev/null
+# sudo apt-get install python3-pip > /dev/null
+# sudo apt install awscli > /dev/null
 
 echo ".......Retrieving IP & Port of AWS instance........"
 SOCKET=$(curl http://checkip.amazonaws.com)
