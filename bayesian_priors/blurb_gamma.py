@@ -41,38 +41,38 @@ m_comments = pn.pane.Markdown("""
 m_story_ = pn.pane.LaTeX(r"""
     The amount of time we have to wait for $\alpha$ arrivals of a Poisson process. More concretely, if we have events, $X_1, \cdots X_\alpha$ that are Exponentially distributed, $X_1  + \cdots X_{\alpha}$  is Gamma distributed.
     <br><br>
-    """, style=blurb_style, width=width_content, height=height_story, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_story, margin=0)
 
 m_params_ = pn.pane.LaTeX(r"""
     $\alpha$: number of arrivals, $(0, \infty)$ <br>
     $\beta$: rate of arrivals, $(0, \infty$) <br><br>
-    """, style=blurb_style, width=width_content, height=height_params, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_params, margin=0)
 
 m_support_ = pn.pane.LaTeX("""
     set of positive real numbers $\mathbb{R}_{> 0}$ <br><br>
-    """, style=blurb_style, width=width_content, height=height_support, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_support, margin=0)
 
 m_pdf_ = pn.pane.LaTeX(r"""
     $f(y; \alpha, \beta) = \dfrac{1}{\Gamma(\alpha)} \dfrac{(\beta y)^\alpha}{y} e^{-\beta y}$ <br><br>
-    """, style=frac_style, width=width_content, height=height_pdf, margin=0)
+    """, styles=frac_style, width=width_content, height=height_pdf, margin=0)
 
 m_cdf_ = pn.pane.LaTeX(r"""
     $F(y; \alpha, \beta)= \dfrac{1}{\Gamma (\alpha)} \gamma (\alpha, \beta y)$
-    """, style=frac_style, width=width_content, height=height_cdf, margin=0)
+    """, styles=frac_style, width=width_content, height=height_cdf, margin=0)
 
 m_moments_ = pn.pane.LaTeX(r"""
     $\mathrm{mean}$: $\dfrac{\alpha}{\beta}$  <br>
     $\mathrm{variance}$: $\dfrac{\alpha}{\beta^2}$ <br><br>
-    """, style=frac_style, width=width_content, height=height_moments, margin=0)
+    """, styles=frac_style, width=width_content, height=height_moments, margin=0)
 
 m_usage_ = pn.pane.LaTeX("""
     SciPy: &nbsp;  <code>scipy.stats.gamma(alpha, loc=0, scale=1/beta)</code> <br>
     Stan: &nbsp;&nbsp;&nbsp; <code>gamma(alpha, beta)</code> <br>
-    """, style=blurb_style, width=width_content, height=height_usage, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_usage, margin=0)
 
 m_comments_ = pn.pane.LaTeX("""
     <br><br>
-    """, style=blurb_style, width=width_content, height=height_comments, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_comments, margin=0)
 
 m_all = pn.Column(
     pn.Row(m_story, m_story_),

@@ -41,26 +41,26 @@ m_comments = pn.pane.Markdown("""
 m_story_ = pn.pane.LaTeX("""
     The story of the Student-t distribution largely derives from its relationships with other distributions. One way to think about it is as like the Normal distribution with heavier tails.
     <br><br>
-    """, style=blurb_style, width=width_content, height=height_story, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_story, margin=0)
 
 m_params_ = pn.pane.LaTeX(r"""
     $\mu$: location of peak, $(-\infty, \infty)$ <br>
     $\sigma$: width of peak, $(0, \infty$) <br>
     $\nu$: degrees of freedom, imparts heavy tails for small $\nu$, $(0, \infty$) <br>
     <br><br>
-    """, style=blurb_style, width=width_content, height=height_params, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_params, margin=0)
 
 m_support_ = pn.pane.LaTeX("""
     set of real numbers $\mathbb{R}$ <br><br>
-    """, style=blurb_style, width=width_content, height=height_support, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_support, margin=0)
 
 m_pdf_ = pn.pane.LaTeX(r"""
  $f(y; \nu, \mu, \sigma) = \dfrac{\Gamma(\frac{\nu+1}{2}) }{\Gamma(\frac{\nu}{2}) \sqrt{\pi \nu \sigma^2}} \left(1 + \dfrac{(y-\mu)^2}{\nu \sigma^2} \right) ^ {-(\nu+1)/2}$ <br><br>
-    """, style=frac_style, width=width_content, height=height_pdf, margin=0)
+    """, styles=frac_style, width=width_content, height=height_pdf, margin=0)
 
 m_cdf_ = pn.pane.LaTeX(r"""
     $F(y; \nu, \mu, \sigma)= \dfrac{1}{2} + x \Gamma\left( \dfrac{\nu+1}{2}\right) \dfrac{{}_{2}F_1(\frac{1}{2}, \frac{\nu+1}{2}; \frac{3}{2}; -\frac{x^2}{\nu})}{\sqrt{\pi \nu}\Gamma(\nu/2)}$
-    """, style=frac_style, width=width_content, height=height_cdf, margin=0)
+    """, styles=frac_style, width=width_content, height=height_cdf, margin=0)
 
 m_moments_ = pn.pane.LaTeX(r"""
     $\mathrm{mean}$: $\begin{cases}
@@ -74,16 +74,16 @@ m_moments_ = pn.pane.LaTeX(r"""
     \end{cases}
     $
     <br><br>
-    """, style=frac_style, width=width_content, height=height_moments, margin=0)
+    """, styles=frac_style, width=width_content, height=height_moments, margin=0)
 
 m_usage_ = pn.pane.LaTeX("""
     SciPy: &nbsp;  <code>scipy.stats.t(nu, mu, sigma)</code> <br>
     Stan: &nbsp;&nbsp;&nbsp; <code>student_t(nu, mu, sigma)</code> <br>
-    """, style=blurb_style, width=width_content, height=height_usage, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_usage, margin=0)
 
 m_comments_ = pn.pane.LaTeX("""
     <br><br>
-    """, style=blurb_style, width=width_content, height=height_comments, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_comments, margin=0)
 
 m_all = pn.Column(
     pn.Row(m_story, m_story_),

@@ -60,40 +60,40 @@ m_comments = pn.pane.Markdown("""
 m_story_ = pn.pane.LaTeX("""
     Any quantity that emerges as the sum of a large number of subprocesses
     tends to be Normally distributed provided none of the subprocesses is very broadly distributed.<br><br>
-    """, style=blurb_style, width=width_content, height=height_story, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_story, margin=0)
 
 m_params_ = pn.pane.LaTeX("""
     $\mu$: location of peak, $(-\infty, \infty)$ <br>
     $\sigma$: width of peak, $(0, \infty$) <br><br>
-    """, style=blurb_style, width=width_content, height=height_params, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_params, margin=0)
 
 m_support_ = pn.pane.LaTeX("""
     set of real numbers $\mathbb{R}$ <br><br>
-    """, style=blurb_style, width=width_content, height=height_support, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_support, margin=0)
 
 m_pdf_ = pn.pane.LaTeX(r"""
  $f(y; \mu, \sigma) = \dfrac{1}{2\pi\sigma^2} e^{-(y-\mu)^2 / 2 \sigma^2}$ <br><br>
-    """, style=frac_style, width=width_content, height=height_pdf, margin=0)
+    """, styles=frac_style, width=width_content, height=height_pdf, margin=0)
 
 # displaystyle, dfrac, ddfrac
 m_cdf_ = pn.pane.LaTeX(r"""
     $F(y; \mu, \sigma)= \dfrac{1}{2} \left[ 1 + \mathrm{erf}\left(\displaystyle\frac{x-\mu}{\sigma \sqrt{2}}\right) \right]$
-    """, style=frac_style, width=width_content, height=height_cdf, margin=0)
+    """, styles=frac_style, width=width_content, height=height_cdf, margin=0)
 
 m_moments_ = pn.pane.LaTeX("""
     mean: $\mu$  <br>
     variance: $\sigma^2$ <br><br>
-    """, style=blurb_style, width=width_content, height=height_moments, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_moments, margin=0)
 
 m_usage_ = pn.pane.LaTeX("""
     SciPy: &nbsp;  <code>scipy.stats.norm(mu, sigma)</code> <br>
     Stan: &nbsp;&nbsp;&nbsp; <code>normal(mu, sigma)</code> <br>
-    """, style=blurb_style, width=width_content, height=height_usage, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_usage, margin=0)
 
 m_comments_ = pn.pane.LaTeX("""
     When using the normal as a prior, note that it has <em>extremely</em> light tails,
     which can be very convenient in some settings, but overwhelming in others.<br><br>
-    """, style=blurb_style, width=width_content, height=height_comments, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_comments, margin=0)
 
 m_all = pn.Column(
     pn.Row(m_story, m_story_),

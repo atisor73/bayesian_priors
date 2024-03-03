@@ -41,38 +41,38 @@ m_comments = pn.pane.Markdown("""
 m_story_ = pn.pane.LaTeX("""
     A peaked distribution with enormously heavy tails. The intercept on the x-axis of a beam of light coming from the point $(\mu, \sigma)$ is Cauchy distributed.
     <br><br>
-    """, style=blurb_style, width=width_content, height=height_story, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_story, margin=0)
 
 m_params_ = pn.pane.LaTeX("""
     $\mu$: location of peak, $(-\infty, \infty)$ <br>
     $\sigma$: width of peak, $(0, \infty$) <br><br>
-    """, style=blurb_style, width=width_content, height=height_params, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_params, margin=0)
 
 m_support_ = pn.pane.LaTeX("""
     set of real numbers $\mathbb{R}$ <br><br>
-    """, style=blurb_style, width=width_content, height=height_support, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_support, margin=0)
 
 m_pdf_ = pn.pane.LaTeX(r"""
  $f(y; \mu, \sigma) = \dfrac{1}{\pi \sigma} \dfrac{1}{1+(y-\mu)^2/\sigma^2}$ <br><br>
-    """, style=frac_style, width=width_content, height=height_pdf, margin=0)
+    """, styles=frac_style, width=width_content, height=height_pdf, margin=0)
 
 m_cdf_ = pn.pane.LaTeX(r"""
     $F(y; \mu, \sigma)= \dfrac{1}{\pi} \mathrm{arctan}{ \left( \dfrac{y-\mu}{\sigma} \right)} + \dfrac{1}{2}$
-    """, style=frac_style, width=width_content, height=height_cdf, margin=0)
+    """, styles=frac_style, width=width_content, height=height_cdf, margin=0)
 
 m_moments_ = pn.pane.LaTeX("""
     mean: undefined  <br>
     variance: undefined <br><br>
-    """, style=blurb_style, width=width_content, height=height_moments, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_moments, margin=0)
 
 m_usage_ = pn.pane.LaTeX("""
     SciPy: &nbsp;  <code>scipy.stats.cauchy(mu, sigma)</code> <br>
     Stan: &nbsp;&nbsp;&nbsp; <code>cauchy(mu, sigma)</code> <br>
-    """, style=blurb_style, width=width_content, height=height_usage, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_usage, margin=0)
 
 m_comments_ = pn.pane.LaTeX("""
     <br><br>
-    """, style=blurb_style, width=width_content, height=height_comments, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_comments, margin=0)
 
 m_all = pn.Column(
     pn.Row(m_story, m_story_),

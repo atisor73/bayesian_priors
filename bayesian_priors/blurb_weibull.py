@@ -38,38 +38,38 @@ m_comments = pn.pane.Markdown("""
 # RHS CONTENT
 m_story_ = pn.pane.LaTeX(r"""
     The quantity $y^\alpha$ is Weibull distributed if $y$ is Exponentially distributed. Like the Exponential distribution, it describes waiting times for arrival of a process. For $\alpha > 1$, the longer we have waited, the more likely the event is to arrive, and vice versa for $\alpha < 1$.<br><br>
-    """, style=blurb_style, width=width_content, height=height_story, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_story, margin=0)
 
 m_params_ = pn.pane.LaTeX(r"""
     $\alpha$: shape of curve, $(0, \infty)$ <br>
     $\sigma$: rate of event arrivals, $(0, \infty$) <br><br>
-    """, style=blurb_style, width=width_content, height=height_params, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_params, margin=0)
 
 m_support_ = pn.pane.LaTeX("""
     set of nonnegative real numbers $\mathbb{R}_{\geq 0}$ <br><br>
-    """, style=blurb_style, width=width_content, height=height_support, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_support, margin=0)
 
 m_pdf_ = pn.pane.LaTeX(r"""
  $f(y; \alpha, \sigma) = \dfrac{\alpha}{\sigma}\left( \dfrac{y}{\sigma} \right)^{\alpha-1} e^{-(y/\sigma)^\alpha}$ <br><br>
-    """, style=frac_style, width=width_content, height=height_pdf, margin=0)
+    """, styles=frac_style, width=width_content, height=height_pdf, margin=0)
 
 m_cdf_ = pn.pane.LaTeX(r"""
     $F(y; \alpha, \sigma) = 1-e^{(-y/\sigma)^{\alpha}}$
-    """, style=frac_style, width=width_content, height=height_cdf, margin=0)
+    """, styles=frac_style, width=width_content, height=height_cdf, margin=0)
 
 m_moments_ = pn.pane.LaTeX(r"""
     mean: $\sigma \Gamma (1+1/\alpha)$  <br>
     variance: $\sigma^2 \left[\Gamma(1+2/\alpha) - (\Gamma(1+1/\alpha))^2 \right]$ <br><br>
-    """, style=blurb_style, width=width_content, height=height_moments, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_moments, margin=0)
 
 m_usage_ = pn.pane.LaTeX("""
     SciPy: &nbsp;  <code>scipy.stats.weibull_min(alpha, loc=0, scale=sigma)</code> <br>
     Stan: &nbsp;&nbsp;&nbsp; <code>weibull(alpha, sigma)</code> <br>
-    """, style=blurb_style, width=width_content, height=height_usage, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_usage, margin=0)
 
 m_comments_ = pn.pane.LaTeX("""
     <br><br>
-    """, style=blurb_style, width=width_content, height=height_comments, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_comments, margin=0)
 
 m_all = pn.Column(
     pn.Row(m_story, m_story_),

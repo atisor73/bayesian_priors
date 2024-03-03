@@ -40,38 +40,38 @@ m_comments = pn.pane.Markdown("""
 # RHS CONTENT
 m_story_ = pn.pane.LaTeX("""
     The Gumbel models the distribution of the extrema (maximum <em>or</em> minimum) of samples from various distributions. It is useful in describing the behavior of extreme events.<br><br>
-    """, style=blurb_style, width=width_content, height=height_story, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_story, margin=0)
 
 m_params_ = pn.pane.LaTeX("""
     $\mu$: location, $(-\infty, \infty)$ <br>
     $\sigma$: scale, $(0, \infty$) <br><br>
-    """, style=blurb_style, width=width_content, height=height_params, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_params, margin=0)
 
 m_support_ = pn.pane.LaTeX("""
     set of real numbers $\mathbb{R}$  <br><br>
-    """, style=blurb_style, width=width_content, height=height_support, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_support, margin=0)
 
 m_pdf_ = pn.pane.LaTeX(r"""
  $f(y; \mu, \sigma) = \dfrac{1}{\beta}e^{-((x-\mu)/\sigma+e^{-(x-\mu/\sigma)})}$ <br><br>
-    """, style=blurb_style, width=width_content, height=height_pdf, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_pdf, margin=0)
 
 m_cdf_ = pn.pane.LaTeX(r"""
 $F(y; \mu, \sigma)= e^{-e^{-(x-\mu)/\beta}}$
-    """, style=blurb_style, width=width_content, height=height_cdf, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_cdf, margin=0)
 
 m_moments_ = pn.pane.LaTeX(r"""
     mean: $\mu + \beta \gamma$, $\gamma$:
         <a href="https://en.wikipedia.org/wiki/Euler%27s_constant", target="_blank">Euler's constant</a> <br>
     variance: $\pi^2\beta^2/6$ <br><br>
-    """, style=blurb_style, width=width_content, height=height_moments, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_moments, margin=0)
 
 m_usage_ = pn.pane.LaTeX("""
     SciPy: &nbsp;  <code>scipy.stats.gumbel_r(mu, sigma)</code> <br>
     Stan: &nbsp;&nbsp;&nbsp; <code>gumbel(mu, sigma)</code> <br>
-    """, style=blurb_style, width=width_content, height=height_usage, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_usage, margin=0)
 
 m_comments_ = pn.pane.LaTeX("""
-    <br><br>""", style=blurb_style, width=width_content, height=height_comments, margin=0)
+    <br><br>""", styles=blurb_style, width=width_content, height=height_comments, margin=0)
 
 m_all = pn.Column(
     pn.Row(m_story, m_story_),

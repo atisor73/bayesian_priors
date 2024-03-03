@@ -1197,6 +1197,7 @@ def dashboard(description=False):
         layout_normal, layout_studentt, layout_expon, layout_gamma, layout_invgamma,
         layout_gumbel, layout_weibull, layout_pareto, layout_lognormal, layout_cauchy, layout_beta)
 
-    layout = pn.Column(md_title, tabs)
+    layout = pn.Row(pn.Spacer(width=200), pn.Column(md_title, tabs))
 
+    # return layout.show()
     return layout.servable()

@@ -39,24 +39,24 @@ m_comments = pn.pane.Markdown("""
 
 # RHS CONTENT
 m_story_ = pn.pane.LaTeX("""
-    If $Y$ is Gamma distributed, then $1/Y$ is Inverse Gamma distributed.""", style=blurb_style, width=width_content, height=height_story, margin=0)
+    If $Y$ is Gamma distributed, then $1/Y$ is Inverse Gamma distributed.""", styles=blurb_style, width=width_content, height=height_story, margin=0)
 
 m_params_ = pn.pane.LaTeX(r"""
     $\alpha$: number of arrivals, $(0, \infty)$ <br>
     $\beta$: rate of arrivals, $(0, \infty$) <br><br>
-    """, style=blurb_style, width=width_content, height=height_params, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_params, margin=0)
 
 m_support_ = pn.pane.LaTeX("""
     set of positive real numbers $\mathbb{R}_{> 0}$ <br><br>
-    """, style=blurb_style, width=width_content, height=height_support, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_support, margin=0)
 
 m_pdf_ = pn.pane.LaTeX(r"""
  $f(y; \alpha, \beta) = \dfrac{1}{\Gamma(\alpha)} \dfrac{\beta^\alpha}{y^{\alpha + 1}} e^{-\beta/y}$ <br><br>
-    """, style=frac_style, width=width_content, height=height_pdf, margin=0)
+    """, styles=frac_style, width=width_content, height=height_pdf, margin=0)
 
 m_cdf_ = pn.pane.LaTeX(r"""
     $F(y; \alpha, \beta)= \dfrac{\Gamma(\alpha, \beta/x) }{ \Gamma(\alpha) }$
-    """, style=frac_style, width=width_content, height=height_cdf, margin=0)
+    """, styles=frac_style, width=width_content, height=height_cdf, margin=0)
 
 m_moments_ = pn.pane.LaTeX(r"""
     $\mathrm{mean}$: $ \begin{cases}
@@ -69,16 +69,16 @@ m_moments_ = pn.pane.LaTeX(r"""
         \mathrm{undefined} & \alpha \leq 2
         \end{cases}
     $ <br><br>
-    """, style=frac_style, width=width_content, height=height_moments, margin=0)
+    """, styles=frac_style, width=width_content, height=height_moments, margin=0)
 
 m_usage_ = pn.pane.LaTeX("""
     SciPy: &nbsp;  <code>scipy.stats.invgamma(alpha, loc=0, scale=beta)</code> <br>
     Stan: &nbsp;&nbsp;&nbsp; <code>inv_gamma(alpha, beta)</code> <br>
-    """, style=blurb_style, width=width_content, height=height_usage, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_usage, margin=0)
 
 m_comments_ = pn.pane.LaTeX("""
     <br><br>
-    """, style=blurb_style, width=width_content, height=height_comments, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_comments, margin=0)
 
 m_all = pn.Column(
     pn.Row(m_story, m_story_),

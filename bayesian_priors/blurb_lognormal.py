@@ -39,38 +39,38 @@ m_comments = pn.pane.Markdown("""
 # RHS CONTENT
 m_story_ = pn.pane.LaTeX("""
     If $\ln{y}$ is Normally distributed, then $y$ is Log-Normally distributed.<br><br>
-    """, style=blurb_style, width=width_content, height=height_story, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_story, margin=0)
 
 m_params_ = pn.pane.LaTeX("""
     $\mu$: location, mean of $\ln{y}$, $(-\infty, \infty)$ <br>
     $\sigma$: scale, std dev of $\ln{y}$, $(0, \infty$) <br><br>
-    """, style=blurb_style, width=width_content, height=height_params, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_params, margin=0)
 
 m_support_ = pn.pane.LaTeX("""
     set of positive real numbers $\mathbb{R}_{>0}$ <br><br>
-    """, style=blurb_style, width=width_content, height=height_support, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_support, margin=0)
 
 m_pdf_ = pn.pane.LaTeX("""
  $f(y; \mu, \sigma) = \dfrac{1}{y \sqrt{2 \pi \sigma^2}} e^{-(\ln{y}-\mu)^2/2\sigma^2}$ <br><br>
-    """, style=frac_style, width=width_content, height=height_pdf, margin=0)
+    """, styles=frac_style, width=width_content, height=height_pdf, margin=0)
 
 m_cdf_ = pn.pane.LaTeX(r"""
 $F(y; \mu, \sigma)= 1/2 \left[ 1 + \mathrm{erf}\left( \dfrac{\ln{y}- \mu}{\sigma \sqrt{2}}  \right) \right]$
-    """, style=frac_style, width=width_content, height=height_cdf, margin=0)
+    """, styles=frac_style, width=width_content, height=height_cdf, margin=0)
 
 m_moments_ = pn.pane.LaTeX(r"""
     mean: $e^{\mu + \sigma^2 / 2}$  <br>
     variance: $\left(e^{\sigma^2}-1 \right) e^{2\mu + \sigma^2}$ <br><br>
-    """, style=blurb_style, width=width_content, height=height_moments, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_moments, margin=0)
 
 m_usage_ = pn.pane.LaTeX("""
     SciPy: &nbsp;  <code>scipy.stats.lognorm(sigma, loc=0, scale=np.exp(mu))</code> <br>
     Stan: &nbsp;&nbsp;&nbsp; <code>lognormal(mu, sigma)</code> <br>
-    """, style=blurb_style, width=width_content, height=height_usage, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_usage, margin=0)
 
 m_comments_ = pn.pane.LaTeX("""
     <br><br>
-    """, style=blurb_style, width=width_content, height=height_comments, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_comments, margin=0)
 
 m_all = pn.Column(
     pn.Row(m_story, m_story_),

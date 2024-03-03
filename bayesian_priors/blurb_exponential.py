@@ -40,37 +40,37 @@ m_comments = pn.pane.Markdown("""
 # RHS CONTENT
 m_story_ = pn.pane.LaTeX(r"""
     Rare events occur with a rate $\beta$ per unit time. There is no “memory” of previous events; i.e., that rate is independent of time. A process that generates such events is called a Poisson process. The occurrence of a rare event in this context is referred to as an arrival. The inter-arrival time of a Poisson process is Exponentially distributed.<br><br>
-    """, style=blurb_style, width=width_content, height=height_story, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_story, margin=0)
 
 m_params_ = pn.pane.LaTeX(r"""
     $\beta$: average arrival rate, $(0, \infty)$ <br>
-    """, style=blurb_style, width=width_content, height=height_params, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_params, margin=0)
 
 m_support_ = pn.pane.LaTeX("""
     set of nonnegative real numbers $\mathbb{R}_{\geq 0}$ <br><br>
-    """, style=blurb_style, width=width_content, height=height_support, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_support, margin=0)
 
 m_pdf_ = pn.pane.LaTeX(r"""
  $f(y; \beta) = \beta e^{-\beta y}$ <br><br>
-    """, style=blurb_style, width=width_content, height=height_pdf, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_pdf, margin=0)
 
 m_cdf_ = pn.pane.LaTeX(r"""
 $F(y; \beta)= 1-e^{-\beta y}$
-    """, style=blurb_style, width=width_content, height=height_cdf, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_cdf, margin=0)
 
 m_moments_ = pn.pane.LaTeX(r"""
     $\mathrm{mean}$: $\dfrac{1}{\beta}$  <br>
     $\mathrm{variance}$: $\dfrac{1}{\beta^2}$ <br><br>
-    """, style=frac_style, width=width_content, height=height_moments, margin=0)
+    """, styles=frac_style, width=width_content, height=height_moments, margin=0)
 
 m_usage_ = pn.pane.LaTeX("""
     SciPy: &nbsp;  <code>scipy.stats.expon(loc=0, scale=1/beta)</code> <br>
     Stan: &nbsp;&nbsp;&nbsp; <code>exponential(beta)</code> <br>
-    """, style=blurb_style, width=width_content, height=height_usage, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_usage, margin=0)
 
 m_comments_ = pn.pane.LaTeX("""
     <br><br>
-    """, style=blurb_style, width=width_content, height=height_comments, margin=0)
+    """, styles=blurb_style, width=width_content, height=height_comments, margin=0)
 
 m_all = pn.Column(
     pn.Row(m_story, m_story_),
