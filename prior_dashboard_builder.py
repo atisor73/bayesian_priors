@@ -28,18 +28,18 @@ def style(p, autohide=False):
     if autohide: p.toolbar.autohide=True
     return p
 
-from .prior_inverse_search import *
-from . import blurb_normal
-from . import blurb_studentt
-from . import blurb_gumbel
-from . import blurb_exponential
-from . import blurb_gamma
-from . import blurb_invgamma
-from . import blurb_weibull
-from . import blurb_pareto
-from . import blurb_lognormal
-from . import blurb_cauchy
-from . import blurb_beta
+from prior_inverse_search import *
+import blurb_normal
+import blurb_studentt
+import blurb_gumbel
+import blurb_exponential
+import blurb_gamma 
+import blurb_invgamma
+import blurb_weibull
+import blurb_pareto
+import blurb_lognormal
+import blurb_cauchy
+import blurb_beta
 
 
 # *********************************** COLORS ***********************************

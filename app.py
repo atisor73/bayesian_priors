@@ -1,7 +1,7 @@
 import panel as pn
-import bayesian_priors
+import prior_dashboard_builder
 
-bayesian_priors.dashboard(description=True)
+prior_dashboard_builder.dashboard(description=True)
 
 #a = pn.widgets.IntSlider(start=0, end=3)
 #pn.Column(a).servable()
