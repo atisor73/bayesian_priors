@@ -1,7 +1,7 @@
 
 # bayesian_priors
 
-A package for visualizing prior distributions in the context of Bayesian inference. The following continuous distributions are supported: *normal*, *student-t*, *exponential*, *gamma*, *inverse gamma*, *weibull*, *pareto*, *gumbel*, *log-normal*, *cauchy*, *beta*. Descriptions of the distributions are from https://distribution-explorer.github.io/. 
+A package for visualizing prior distributions in the context of Bayesian inference. The following continuous distributions are supported: *normal*, *student-t*, *exponential*, *gamma*, *inverse gamma*, *weibull*, *pareto*, *gumbel*, *log-normal*, *cauchy*, *beta*. Live demo is here: https://github.com/atisor73/bayesian_priors. Descriptions of the distributions are from https://distribution-explorer.github.io/. 
 
 
 
